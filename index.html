@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html data-ng-app="nprPlayer">
+<head>
+  <style>
+    ul {
+      list-style: none;
+    }
+  </style>
+  <script src="angular.min.js"></script>
+  <script src="main.js"></script>
+</head>
+<body>
+  <div data-ng-controller="PlayerCtrl">
+    <button data-ng-click="play()" class="button" data-ng-show="!playing">Play</button>
+    <button data-ng-click="stop()" class="button" data-ng-show="playing">Stop</button>
+    <p>Playing audio: <b>{{playing}}</b></p>
+
+    <ul id="programs-list">
+      <li ng-repeat="program in programs">
+        <npr-link play="play(program)" program="program"></npr-link>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>
